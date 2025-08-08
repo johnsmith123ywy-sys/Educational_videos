@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authentication</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0a0f24, #1d183b);
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #ff00cc;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #1a1a2e;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+      margin: 0 auto;
+      width: fit-content;
+    }
+
+    input {
+      width: 300px;
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #2f2f4f;
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      transition: box-shadow 0.3s;
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 10px #ff00cc;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      background: #ff00cc;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #e600b0;
+      transform: scale(1.05);
+    }
+
+    #result {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      transition: color 0.4s;
+    }
+
+    .valid {
+      color: #00ff88;
+      text-shadow: 0 0 5px #00ff88;
+    }
+
+    .invalid {
+      color: #ff4444;
+      text-shadow: 0 0 5px #ff4444;
+    }
+
+    .error {
+      color: #ffff66;
+      text-shadow: 0 0 5px #ffff66;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Password plz</h1>
+  <form id="authForm">
+    <input type="password" id="passwordInput" placeholder="Enter Password" autocomplete="off" />
+    <button type="submit">ENTER</button>
+    <div id="result"></div>
+  </form>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const input = document.getElementById('passwordInput');
+      const result = document.getElementById('result');
+      const form = document.getElementById('authForm');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const password = input.value.trim();
+        if (!password) return;
+
+        fetch('passwordsehebdu.txt')
+          .then(res => res.text())
+          .then(text => {
+            const validPasswords = text.split('\n').map(p => p.trim());
+            if (validPasswords.includes(password)) {
+              result.textContent = 'Finally a worthy opponent 🗿';
+              result.className = 'valid';
+              setTimeout(() => {
+                window.location.href = 'hg65fufygygygcyvufugyg6thf67e([9hcxwaejkpbcgjxtvuckplpncgxedjpphphdrcydwshchfrdtdgbopdwaaxhkpndddggyydgesjooobigihpjhijohijijujikjijodsrgoppkcxrwfjygjbuhyguhijihopbdexhopb.html';
+              }, 800);
+            } else {
+              result.textContent = 'womp womp lil nigga wrong password 🙏🥀🥀';
+              result.className = 'invalid';
+            }
+          })
+          .catch(err => {
+            result.textContent = '⚠️ FILE ERROR';
+            result.className = 'error';
+            console.error('Validation failed:', err);
+          });
+      });
+    });
+  </script>
+</body>
+</html>
